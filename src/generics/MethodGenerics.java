@@ -3,23 +3,19 @@ package generics;
 import common.Employee;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Playground {
-
-    class ReverseComparator<T> implements Comparator<T> {
-        private final Comparator<T> delegateComparator;
-
-        ReverseComparator(Comparator<T> delegateComparator) {
-            this.delegateComparator = delegateComparator;
-        }
-
-        @Override
-        public int compare(T o1, T o2) {
-            return -1 * delegateComparator.compare(o1, o2);
-        }
+public class MethodGenerics {
+    /**
+     * Generics on method
+     *
+     * @param list
+     * @param comparator
+     * @return
+     */
+    public <T> T min(List<T> list, Comparator<T> comparator) {
+        return list.stream().min(comparator).get();
     }
 
     public void play() {
@@ -33,7 +29,8 @@ public class Playground {
         employees.add(e3);
 
         Comparator<Employee> ageComparator = (p1, p2) -> Integer.compare(p1.getAge(), p2.getAge());
-        Collections.sort(employees, new ReverseComparator<>(ageComparator));
 
+        Employee employee = min(employees, ageComparator);
+        System.out.println(employee);
     }
 }
