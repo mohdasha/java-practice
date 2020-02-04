@@ -6,6 +6,11 @@ public class Employee {
     private int empId;
     private String name;
     private int age;
+    private double salary;
+
+    public Employee() {
+
+    }
 
     public Employee(int empId, String name, int age) {
         Objects.requireNonNull(empId);
@@ -40,12 +45,21 @@ public class Employee {
         this.age = age;
     }
 
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
                 "empId=" + empId +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", salary=" + salary +
                 '}';
     }
 }
