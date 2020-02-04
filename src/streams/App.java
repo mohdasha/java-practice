@@ -65,7 +65,7 @@ public class App {
     }
 
     public static void playWithGroups() throws IOException, ParseException {
-        File file = new File("C:\\Users\\alima\\Downloads\\employee-data.csv");
+        File file = new File("resources\\employee-data.csv");
 
         try (Stream<String> employee = Files.lines(file.toPath())) {
             employee.map(App::transform)
