@@ -5,7 +5,5 @@ public class App {
 
 
         EldestEntryRemovalFunction<String, String> eldestEntryRemovalFunction = (map, entry) -> map.size() > 100;
-
-
     }
 }
